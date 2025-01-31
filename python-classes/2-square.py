@@ -1,25 +1,15 @@
 #!/usr/bin/python3
-class Square:
+"""
+This is the Square module who initialize a square class,
+with a private class attribute "size"
+"""
+
+
+class Square():
+    """initialize a square's class with a private class atribute"""
     def __init__(self, size=0):
-        self.size = size
-
-    @property
-    def size(self):
-        return self.__size
-
-    @size.setter
-    def size(self, value):
-        if not isinstance(value, int):
+        if not isinstance(size, int):
             raise TypeError("size must be an integer")
-        if value < 0:
+        if size < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
-
-    def area(self):
-        return self.__size ** 2
-
-    def perimeter(self):
-        return 4 * self.__size
-
-    def __str__(self):
-        return f"Square(size={self.__size})"
+        self.__size = size
