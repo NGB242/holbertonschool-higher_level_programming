@@ -1,28 +1,41 @@
 #!/usr/bin/python3
-class Rectangle:
-    # Init function
-    def __init__(self):
-        # The only members are length and width
-        self.length = 1
-        self.width = 1
 
-    # Setters
-    def set_width(self, width):
+"""
+This is the rectangle module who initialize a rectangle class.
+"""
+
+
+class Rectangle():
+    """initialize a square's class with a private class atribute"""
+    def __init__(self, width=0, height=0):
+        """"initialize the width"""
         self.width = width
+        self.height = height
 
-    def set_length(self, length):
-        self.length = length
+    @property
+    def width(self):
+        """getter for width"""
+        return self.__width
 
-    # Getters
-    def get_width(self):
-        return self.width
+    @width.setter
+    def width(self, value):
+        """setter for width"""
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
+        if value < 0:
+            raise ValueError("width must be >= 0")
+        self.__width = value
 
-    def get_length(self):
-        return self.length
+    @property
+    def height(self):
+        """getter for height"""
+        return self.__height
 
-    def get_area(self):
-        return self.length * self.width
-
-    # String representation
-    def __str__(self):
-        return 'length = {}, width = {}'.format(self.length, self.width)
+    @height.setter
+    def height(self, value):
+        """setter for height"""
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
+        if value < 0:
+            raise ValueError("height must be >= 0")
+        self.__height = value
