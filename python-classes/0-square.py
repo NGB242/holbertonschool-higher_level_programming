@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 
 """
-This is the Square module which initializes a square class
+This is the Square module who initialize a square class
 """
 
-
-class Square:
-    """Create a square's class"""
+class Square():
+    """"create a square's class"""
     pass
