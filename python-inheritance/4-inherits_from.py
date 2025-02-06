@@ -1,30 +1,21 @@
 #!/usr/bin/python3
-
-def is_instance_of_inherited_class(obj, cls):
-    """
-    Check if the object is an instance of a class that inherited directly or indirectly from the specified class.
-
-    Parameters:
-    obj (object): The object to check.
-    cls (type): The class to check against.
-
-    Returns:
-    bool: True if obj is an instance of a class that inherited from cls, False otherwise.
-    """
-    return isinstance(obj, cls) and type(obj) is not cls
+"""
+Defines the function inherits_from that checks if an object
+inherits directly or indirectly from a specified class.
+"""
 
 
-class Animal:
-    pass
+def inherits_from(obj, a_class):
+        """
+        Determines if an object is an instance of a class that inherited
+        (directly or indirectly) from the specified class.
 
-class Mammal(Animal):
-    pass
+        Args:
+            obj: The object to check.
+            a_class: The class to compare against.
 
-class Dog(Mammal):
-    pass
-
-dog = Dog()
-
-print(is_instance_of_inherited_class(dog, Animal))  # True
-print(is_instance_of_inherited_class(dog, Mammal))  # True
-print(is_instance_of_inherited_class(dog, Dog))     # False
+        Returns:
+            True if obj is an instance of a subclass of a_class (but not a direct instance),
+            otherwise False.
+        """
+        return isinstance(obj, a_class) and type(obj) is not a_class
