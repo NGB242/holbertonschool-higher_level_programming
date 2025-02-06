@@ -1,20 +1,19 @@
 #!/usr/bin/python3
-def is_instance_of(obj, cls):
-    return isinstance(obj, cls)
+"""
+Defines the function is_kind_of_class that checks if an object
+is an instance of, or inherits from, a specified class.
+"""
 
 
-class Animal:
-    pass
+def is_kind_of_class(obj, a_class):
+        """
+        Determines if an object is an instance of a given class or a subclass.
 
-class Dog(Animal):
-    pass
+        Args:
+            obj: The object to check.
+            a_class: The class to compare against.
 
-class Cat(Animal):
-    pass
-
-dog = Dog()
-cat = Cat()
-
-print(is_instance_of(dog, Animal))  # True
-print(is_instance_of(cat, Animal))  # True
-print(is_instance_of(dog, Cat))     # False
+        Returns:
+            True if obj is an instance of a_class or inherits from it, otherwise False.
+        """
+        return isinstance(obj, a_class)
