@@ -23,8 +23,8 @@ class Student:
     def to_json(self, attrs=None):
         """
         Returns a dictionary representation of the student.
-        
-        param attrs: A list of attribute names to include in the dictionary.
+        param attrs: A list of attribute names to include,
+         in the dictionary.
         If None, all attributes are included.
         return: A dictionary containing the specified,
         attributes of the student.
@@ -32,4 +32,4 @@ class Student:
         if attrs is None:
             return self.__dict__
         else:
-            return {key: value for key, value in self.__dict__.items() if key in attrs}
+            return {k: v for k, v in self.__dict__.items()if k in attrs}
