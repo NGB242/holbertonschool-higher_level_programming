@@ -16,7 +16,4 @@ def to_json_string(obj):
     str: JSON string representation of the object.
     """
 
-    try:
-        return json.dumps(obj)
-    except (TypeError, ValueError) as e:
-        return str(e)
+    return json.dumps(obj)
