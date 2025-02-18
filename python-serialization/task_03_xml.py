@@ -7,55 +7,30 @@ def serialize_to_xml(dictionary, filename):
     """
     Create the root element
     """
-    root = ET.Element("data")
+    root = ET.Element("root")
 
     """
     Iterate through the dictionary items and add them as child elements
     """
-    for key, value in dictionary.items():
-        item = ET.SubElement(root, key)
-        item.text = str(value)
+    for key, value in data.items():
+        element = ET.SubElement(root, key)
+        element.text = str(value)
 
     """
     Create an ElementTree object and write it to the provided filename
     """
     tree = ET.ElementTree(root)
-    try:
-        tree.write(filename)
-        return True
-    except Exception as e:
-        print(f"Serialization error: {e}")
-        return False
+    with open(filename, "wb") as f:
+        tree.write(f)
 
 
 def deserialize_from_xml(filename):
-    try:
-        """
-        Parse the XML file
-        """
-        tree = ET.parse(filename)
-        root = tree.getroot()
 
-        """
-        Reconstruct the dictionary from the XML elements
-        """
-        dictionary = {child.tag: child.text for child in root}
+    """
+    Parse the XML file
+    """
+    tree = ET.parse(filename)
+    root = tree.getroot()
 
-        """
-        Convert values to appropriate data types if necessary
-        """
-        for key, value in dictionary.items():
-            if value.isdigit():
-                dictionary[key] = int(value)
-            elif value.lower() == 'true':
-                dictionary[key] = True
-            elif value.lower() == 'false':
-                dictionary[key] = False
-
-        return dictionary
-    except FileNotFoundError:
-        print(f"Error: The file {filename} was not found.")
-        return None
-    except Exception as e:
-        print(f"Deserialization error: {e}")
-        return None
+    data = {child.tag: child.text for child in root}
+    return data
