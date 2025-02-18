@@ -37,5 +37,10 @@ class CustomObject:
         """
         Load and return an instance of CustomObject from the specified file.
         """
+        if not os.path.exists(filename) or os.path.getsize(filename) == 0:
+            raise ValueError(f"Error: The file '{filename}' is missing or empty.")
         with open(filename, 'rb') as file:
-            return pickle.load(file)
+            try:
+                return pickle.load(file)
+            except EOFError:
+                raise ValueError(f"Error: The file '{filename}' is corrupted.")
