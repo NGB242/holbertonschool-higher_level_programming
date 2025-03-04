@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""
+unction that prints all integers of a list.
+"""
+
+
 def print_list_integer(my_list=[]):
-    for item in lst:
-        if isinstance(item, int):
-            str.format(item)
+    for i in my_list:
+        print("{:d}".format(i))
