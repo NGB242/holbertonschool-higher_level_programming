@@ -1,23 +1,22 @@
 #!/usr/bin/python3
-"""
-Convert a JSON string into a Python dictionary.
-"""
 
+"""
+    Module that returns an object (Python data structure) represented
+    by a JSON string:
+"""
 
 import json
 
 
 def from_json_string(my_str):
     """
-    Convert a JSON string into a Python dictionary.
-    Parameters:
-    my_str (str): A JSON formatted string.
+    from_json_string
+
+    Args:
+        my_str (str): json string
 
     Returns:
-    dict: A Python dictionary representing the JSON string.
+        python object: data structure of the json converted in python
     """
-    try:
-        return json.loads(my_str)
-    except json.JSONDecodeError as e:
-        print(f"Error decoding JSON: {e}")
-        return None
+    py_data_struct = json.loads(my_str)
+    return py_data_struct
