@@ -1,21 +1,26 @@
 #!/usr/bin/python3
 
 """
-    Module for is_kind_of_class
+    Module for inherits from
 """
 
 
-def is_kind_of_class(obj, a_class):
+def inherits_from(obj, a_class):
     """
-    is_kind_of_class:
-        Check if the object is an instance of, or if the object is an instance
-        of a class that inherited from, the specified class
+    inherits_from:
+    check if the object is an instance of a
+    class that inherited (directly or indirectly)
+    from the specified class
 
     Args:
-        obj (obj): obj to check
-        a_class (class): class or subclass to check
+        obj (obj): object to check
+        a_class (class): subclass to check
 
     Returns:
-        boolean: true or false
+        boolean: True or False
     """
-    return (isinstance(obj, a_class))
+    obj_type = type(obj)
+    if issubclass(obj_type, a_class) and obj_type is not a_class:
+        return True
+    else:
+        return False
