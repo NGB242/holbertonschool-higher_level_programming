@@ -1,21 +1,21 @@
 #!/usr/bin/python3
+
 """
-Defines the function inherits_from that checks if an object
-inherits directly or indirectly from a specified class.
+    Module for is_kind_of_class
 """
 
 
-def inherits_from(obj, a_class):
-        """
-        Determines if an object is an instance of a class that inherited
-        (directly or indirectly) from the specified class.
+def is_kind_of_class(obj, a_class):
+    """
+    is_kind_of_class:
+        Check if the object is an instance of, or if the object is an instance
+        of a class that inherited from, the specified class
 
-        Args:
-            obj: The object to check.
-            a_class: The class to compare against.
+    Args:
+        obj (obj): obj to check
+        a_class (class): class or subclass to check
 
-        Returns:
-            True if obj is an instance of a subclass of a_class (but not a direct instance),
-            otherwise False.
-        """
-        return isinstance(obj, a_class) and type(obj) is not a_class
+    Returns:
+        boolean: true or false
+    """
+    return (isinstance(obj, a_class))
