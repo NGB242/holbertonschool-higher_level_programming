@@ -1,32 +1,56 @@
-#!/usr/bin/env python3
-"""
-an abstract class named Animal using the ABC package.
-"""
+#!/usr/bin/python3
 
+"""
+Abstract animal class and its subclasses
+"""
 
 from abc import ABC, abstractmethod
 
 
 class Animal(ABC):
+    """
+    Animal Parent class to generate animal subclass
 
+    Args:
+        ABC (_type_): Abstract
+    """
     @abstractmethod
     def sound(self):
         """
-        Abstract method that must be implemented by subclasses
+        sound Empty (build the abstract)
         """
         pass
 
 
-class Animal:
-    def sound(self):
-        raise NotImplementedError("Subclasses must implement this method")
-
-
 class Dog(Animal):
+    """
+    Dog Class for Dog object
+
+    Args:
+        Animal (object): inherit from Animal
+    """
     def sound(self):
-        return "bark"
+        """
+        sound Function to know the sound of the animal
+
+        Returns:
+            string: Bark
+        """
+        return ("Bark")
 
 
 class Cat(Animal):
+    """
+    Cat Class for Cat object
+
+    Args:
+        Animal (object): inherit from Animal
+    """
     def sound(self):
-        return "meow"
+        """
+        sound Function to know the sound of the animal
+
+        Returns:
+            string: Meow
+        """
+        return ("Meow")
